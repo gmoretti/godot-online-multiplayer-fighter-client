@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 1 )
+
+[node name="Bullet" type="RigidBody2D"]
+scale = Vector2( 1.50745, 1.03756 )
+mass = 0.816326
+contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 3.18643, 3.15663 )
+shape = SubResource( 1 )
