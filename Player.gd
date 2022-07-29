@@ -30,7 +30,7 @@ var rate_of_fire = 0.4
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	SkillLoop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,7 +61,7 @@ func definePlayerState():
 	}
 	Server.sendPlayerState(player_state)
 
-func movementLoop(delta):
+func movementLoop(_delta):
 	motion.y += GRAVITY
 	if motion.y > MAXFALLSPEED:
 		motion.y = MAXFALLSPEED

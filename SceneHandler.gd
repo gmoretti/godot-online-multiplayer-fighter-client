@@ -18,5 +18,4 @@ func _ready():
 func start_game():
 	var mapstart_instance = mapstart.instance()
 	add_child(mapstart_instance)
-	var node = get_node("Lobby")
 	get_node("Lobby").queue_free()

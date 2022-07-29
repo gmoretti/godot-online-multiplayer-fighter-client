@@ -16,6 +16,6 @@ func SelfDistruct():
 	yield(get_tree().create_timer(life_time), "timeout")
 	queue_free()
 
-func _on_Bullet_body_entered(body):
+func _on_Bullet_body_entered(_body):
 	get_node("CollisionShape2D").set_deferred("disabled", true)
 	self.hide()

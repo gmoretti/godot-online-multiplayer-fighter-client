@@ -11,7 +11,7 @@ func MovePlayer(new_position, animation_vector):
 	set_position(new_position)
 	$Sprite.scale.x = animation_vector.y
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not attack_dict == {}:
 		Attack()
 	if not damage_dict == {}:
