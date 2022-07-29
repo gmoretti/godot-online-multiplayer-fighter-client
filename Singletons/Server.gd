@@ -78,7 +78,6 @@ remote func returnData(s_data, requester):
 	instance_from_id(requester).setDataComingFromServer(s_data)
 
 remote func SpawnPlayer(player_id, spawn_postion):
-	str(player_id)
 	get_node("../SceneHandler/Main/World").SpawnPlayer(player_id, spawn_postion)
 	
 remote func DispawnPlayer(player_id):

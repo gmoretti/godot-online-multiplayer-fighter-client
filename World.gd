@@ -52,6 +52,7 @@ func _physics_process(delta):
 				else:
 					print("Spawning player")
 					SpawnPlayer(player, world_state_buffer[2][player]["P"])
+
 		elif render_time > world_state_buffer[1]["T"]:
 			var extrapolation_factor = float(render_time - world_state_buffer[0]["T"]) / float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.00
 			for player in world_state_buffer[1].keys():
