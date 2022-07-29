@@ -92,7 +92,6 @@ remote func ReceiveWorldState(world_state):
 remote func ReturnServerTime(server_time, client_time):
 	latency = (OS.get_system_time_msecs() - client_time) / 2
 	client_clock = server_time + latency
-	print(server_time, " ", client_time)
 	
 func DetermineLatency():
 	rpc_id(1, "DetermineLatency", OS.get_system_time_msecs())
@@ -127,5 +126,4 @@ remote func ReceiveDamage(damage, damage_time, player_id):
 	if player_id == get_tree().get_network_unique_id():
 		get_node("/root/SceneHandler/Main/Player").damage_dict[damage_time] = {"Health": damage}
 	else:
-		print(get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)))
 		get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)).damage_dict[damage_time] = {"Health": damage}

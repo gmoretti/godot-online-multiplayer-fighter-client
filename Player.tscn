@@ -37,3 +37,13 @@ rect_scale = Vector2( 6.23819, 6.23819 )
 text = "100%"
 align = 1
 valign = 1
+
+[node name="DisplayName" type="Label" parent="."]
+margin_left = -565.0
+margin_top = -395.0
+margin_right = -384.0
+margin_bottom = -381.0
+rect_scale = Vector2( 6.23819, 6.23819 )
+text = "Display Name"
+align = 1
+valign = 1

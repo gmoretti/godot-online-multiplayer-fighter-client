@@ -13,12 +13,14 @@ func SpawnPlayer(player_id, spawn_position):
 			var new_player = player_local.instance()
 			new_player.position = spawn_position
 			new_player.name = "Player"
+			new_player.display_name = new_player.set_display_name(Server.players[player_id]["name"])
 			get_node("/root/SceneHandler/Main").add_child(new_player)
 	else:
 		if not get_node("OtherPlayers").has_node(str(player_id)):
 			var new_player = player_spawn.instance()
 			new_player.position = spawn_position
 			new_player.name = str(player_id)
+			new_player.display_name = new_player.set_display_name(Server.players[player_id]["name"])
 			get_node("./OtherPlayers").add_child(new_player)
 
 func DispawnPlayer(player_id):

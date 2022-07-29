@@ -6,6 +6,7 @@ var damage_dict = {}
 
 var max_hp
 var current_hp
+var display_name
 
 func MovePlayer(new_position, animation_vector):
 	set_position(new_position)
@@ -32,5 +33,9 @@ func ReceiveDamage():
 	for damage in damage_dict.keys():
 		if damage <= Server.client_clock:
 			current_hp = damage_dict[damage]["Health"]
-			$Health.text = str(current_hp)
+			$Health.text = str(current_hp) + "%"
 			damage_dict.erase(damage)
+
+func set_display_name(display_name_from_server):
+	display_name = display_name_from_server
+	$DisplayName.text = display_name
