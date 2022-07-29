@@ -77,8 +77,8 @@ func fetchSomeData(requestedData, requester):
 remote func returnData(s_data, requester):
 	instance_from_id(requester).setDataComingFromServer(s_data)
 
-remote func SpawnPlayer(player_id, spawn_postion):
-	get_node("../SceneHandler/Main/World").SpawnPlayer(player_id, spawn_postion)
+remote func SpawnPlayer(player_id, spawn_postion, color):
+	get_node("../SceneHandler/Main/World").SpawnPlayer(player_id, spawn_postion, color)
 	
 remote func DispawnPlayer(player_id):
 	get_node("../SceneHandler/Main/World").DispawnPlayer(player_id)
@@ -127,3 +127,11 @@ remote func ReceiveDamage(damage, damage_time, player_id):
 		get_node("/root/SceneHandler/Main/Player").damage_dict[damage_time] = {"Health": damage}
 	else:
 		get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)).damage_dict[damage_time] = {"Health": damage}
+
+remote func ReceiveKillPlayer(kill_time, player_id):
+	if player_id == get_tree().get_network_unique_id():
+		#get_node("/root/SceneHandler/Main/Player").damage_dict[damage_time] = {"Health": damage}
+		get_node("/root/SceneHandler/Main/Player").KillPlayer()
+	else:
+		#get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)).damage_dict[damage_time] = {"Health": damage}
+		get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)).KillPlayer()

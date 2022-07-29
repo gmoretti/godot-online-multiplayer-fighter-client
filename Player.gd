@@ -106,3 +106,11 @@ func ReceiveDamage():
 func set_display_name(display_name_from_server):
 	display_name = display_name_from_server
 	$DisplayName.text = display_name
+
+func KillPlayer():
+	$Sprite.hide()
+	$SpriteDead.show()
+
+func set_player_color(color):
+	$Sprite.modulate = color
+	$SpriteDead.modulate = color

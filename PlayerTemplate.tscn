@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/pxArt-removebg-preview.png" type="Texture" id=1]
 [ext_resource path="res://PlayerTemplate.gd" type="Script" id=2]
 [ext_resource path="res://assets/gun.png" type="Texture" id=3]
+[ext_resource path="res://assets/catala_dead.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 159.05
@@ -15,6 +16,12 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2, -1 )
 shape = SubResource( 1 )
+
+[node name="SpriteDead" type="Sprite" parent="."]
+visible = false
+position = Vector2( -35.0001, -20 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.101961, 0.662745, 0.215686, 1 )

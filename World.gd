@@ -7,20 +7,22 @@ var player_spawn = preload("res://PlayerTemplate.tscn")
 var player_local = preload("res://Player.tscn")
 var world_state_buffer = []
 
-func SpawnPlayer(player_id, spawn_position):
+func SpawnPlayer(player_id, spawn_position, color):
 	if (get_tree().get_network_unique_id() == player_id):
 		if not get_node("/root/SceneHandler/Main").has_node("Player"):
 			var new_player = player_local.instance()
 			new_player.position = spawn_position
 			new_player.name = "Player"
-			new_player.display_name = new_player.set_display_name(Server.players[player_id]["name"])
+			new_player.set_display_name(Server.players[player_id]["name"])
+			new_player.set_player_color(color)
 			get_node("/root/SceneHandler/Main").add_child(new_player)
 	else:
 		if not get_node("OtherPlayers").has_node(str(player_id)):
 			var new_player = player_spawn.instance()
 			new_player.position = spawn_position
 			new_player.name = str(player_id)
-			new_player.display_name = new_player.set_display_name(Server.players[player_id]["name"])
+			new_player.set_display_name(Server.players[player_id]["name"])
+			new_player.set_player_color(color)
 			get_node("./OtherPlayers").add_child(new_player)
 
 func DispawnPlayer(player_id):
@@ -52,9 +54,10 @@ func _physics_process(_delta):
 					var animation_vector = world_state_buffer[2][player]["A"]
 					get_node("OtherPlayers/" + str(player)).MovePlayer(new_position, animation_vector)
 				else:
-					print("Spawning player")
-					SpawnPlayer(player, world_state_buffer[2][player]["P"])
-
+					#print("Spawning player")
+					#SpawnPlayer(player, world_state_buffer[2][player]["P"])
+					pass
+				
 		elif render_time > world_state_buffer[1]["T"]:
 			var extrapolation_factor = float(render_time - world_state_buffer[0]["T"]) / float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.00
 			for player in world_state_buffer[1].keys():
