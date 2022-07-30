@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 Server="*res://Singletons/Server.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 left={

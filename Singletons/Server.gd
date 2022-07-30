@@ -128,7 +128,7 @@ remote func ReceiveDamage(damage, damage_time, player_id):
 	else:
 		get_node("/root/SceneHandler/Main/World/OtherPlayers/" + str(player_id)).damage_dict[damage_time] = {"Health": damage}
 
-remote func ReceiveKillPlayer(kill_time, player_id):
+remote func ReceiveKillPlayer(_kill_time, player_id):
 	if player_id == get_tree().get_network_unique_id():
 		#get_node("/root/SceneHandler/Main/Player").damage_dict[damage_time] = {"Health": damage}
 		get_node("/root/SceneHandler/Main/Player").KillPlayer()

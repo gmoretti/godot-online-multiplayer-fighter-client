@@ -49,11 +49,13 @@ func _physics_process(_delta):
 				if not world_state_buffer[1].has(player):
 					continue
 				if get_node("OtherPlayers").has_node(str(player)):
-					var new_position = lerp(world_state_buffer[1][player]["P"], world_state_buffer[2][player]["P"], interpolation_factor)
-					
-					var animation_vector = world_state_buffer[2][player]["A"]
-					get_node("OtherPlayers/" + str(player)).MovePlayer(new_position, animation_vector)
+					if world_state_buffer[2].has(player):
+						var new_position = lerp(world_state_buffer[1][player]["P"], world_state_buffer[2][player]["P"], interpolation_factor)
+						
+						var animation_vector = world_state_buffer[2][player]["A"]
+						get_node("OtherPlayers/" + str(player)).MovePlayer(new_position, animation_vector)
 				else:
+					# No need to respawn players
 					#print("Spawning player")
 					#SpawnPlayer(player, world_state_buffer[2][player]["P"])
 					pass
