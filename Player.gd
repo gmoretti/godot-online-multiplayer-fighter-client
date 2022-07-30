@@ -89,6 +89,7 @@ func movementLoop(_delta):
 		if Input.is_action_pressed("jump"):
 			motion.y = -JUMPFORCE	
 			# Server.fetchSomeData("data", get_instance_id())
+			$AudioJump.play()
 	
 	motion = move_and_slide(motion, UP)
 	
@@ -101,6 +102,7 @@ func ReceiveDamage():
 		if damage <= Server.client_clock:
 			current_hp = damage_dict[damage]["Health"]
 			$Health.text = str(current_hp) + "%"
+			$AudioDamage.play()
 			damage_dict.erase(damage)
 
 func set_display_name(display_name_from_server):
@@ -110,6 +112,8 @@ func set_display_name(display_name_from_server):
 func KillPlayer():
 	$Sprite.hide()
 	$SpriteDead.show()
+	set_process_input(false)
+	$AudioDie.play()
 
 func set_player_color(color):
 	$Sprite.modulate = color

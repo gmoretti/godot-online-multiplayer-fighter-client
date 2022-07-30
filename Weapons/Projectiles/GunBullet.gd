@@ -9,6 +9,7 @@ var original = true
 func _ready():
 	apply_impulse(Vector2(), direction * projectile_speed)
 	$Bullet.scale.x = direction.x
+	$sound.play()
 	#apply_impulse(Vector2(), Vector2(projectile_speed, 0).rotated(rotation))
 	SelfDistruct()
 	

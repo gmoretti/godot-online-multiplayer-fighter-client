@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/death_scream_whilem.wav-58641d8a64ed41d4d86e784be4bee2cb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/death_scream_whilem.wav"
+dest_files=[ "res://.import/death_scream_whilem.wav-58641d8a64ed41d4d86e784be4bee2cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

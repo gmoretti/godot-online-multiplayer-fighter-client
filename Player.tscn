@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/pxArt-removebg-preview.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/gun.png" type="Texture" id=3]
 [ext_resource path="res://assets/catala_dead.png" type="Texture" id=4]
 [ext_resource path="res://CameraController.gd" type="Script" id=5]
+[ext_resource path="res://assets/sounds/death_scream_whilem.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/damage.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/jump.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 159.05
@@ -66,3 +69,12 @@ rect_scale = Vector2( 6.23819, 6.23819 )
 text = "Display Name"
 align = 1
 valign = 1
+
+[node name="AudioDie" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AudioDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )

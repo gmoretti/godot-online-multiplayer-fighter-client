@@ -34,6 +34,7 @@ func ReceiveDamage():
 		if damage <= Server.client_clock:
 			current_hp = damage_dict[damage]["Health"]
 			$Health.text = str(current_hp) + "%"
+			$AudioDamage.play()
 			damage_dict.erase(damage)
 
 func set_display_name(display_name_from_server):
@@ -43,6 +44,7 @@ func set_display_name(display_name_from_server):
 func KillPlayer():
 	$Sprite.hide()
 	$SpriteDead.show()
+	$AudioDie.play()
 
 func set_player_color(color):
 	$Sprite.modulate = color
